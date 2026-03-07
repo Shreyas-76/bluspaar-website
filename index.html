@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLUSPAAR | Blueberries at Par Excellence</title>
+  <meta name="description" content="Premium blueberries grown with technology, traceability, and quality at the core." />
+  <style>
+    :root {
+      --bg: #0d1328;
+      --bg-soft: #151d38;
+      --text: #f5f7fb;
+      --muted: #b8c0d9;
+      --accent: #4d6bff;
+      --line: rgba(255,255,255,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, #0a1020 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .tagline-top {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .section-text {
+      color: var(--muted);
+      max-width: 850px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .step {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .step-number {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .contact-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px;
+      margin-top: 24px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .contact-box a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">BLUSPAAR</div>
+      <div class="tagline-top">Blueberries at Par Excellence</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Premium Blueberries.<br>Built on Precision.</h1>
+        <p>
+          BLUSPAAR is building a premium blueberry brand by combining modern agriculture,
+          traceability, and quality-first systems to deliver berries that are fresh, transparent, and dependable.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#story">Our Story</a>
+          <a class="btn btn-secondary" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="container">
+        <h2 class="section-title">Our Story</h2>
+        <p class="section-text">
+          At BLUSPAAR, we aim to create a premium blueberry brand by combining technology with modern agriculture.
+          Our focus is to deliver exceptional quality while ensuring complete transparency in how our berries are grown and handled.
+          Every blueberry we produce is part of a traceable journey—from cultivation and harvest to testing and cold-chain storage.
+        </p>
+      </div>
+    </section>
+
+    <section id="pillars">
+      <div class="container">
+        <h2 class="section-title">Built Around Quality</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Controlled Cultivation</h3>
+            <p>
+              Blueberries are grown using carefully managed cultivation systems designed to support consistency,
+              plant health, and premium fruit quality.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Technology-Driven Farming</h3>
+            <p>
+              Environmental monitoring, irrigation control, and process discipline help us maintain optimal growing conditions
+              throughout the crop cycle.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Traceability & Testing</h3>
+            <p>
+              Our long-term vision is to connect every pack to its journey through QR-based traceability,
+              supported by quality checks such as residue, microbial, and nutritional analysis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <h2 class="section-title">From Harvest to Consumption</h2>
+        <div class="process">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h3>Harvest</h3>
+            <p>Fruit is harvested with quality and handling discipline at the center.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h3>Pre-Cooling</h3>
+            <p>Rapid cooling helps preserve freshness, texture, and shelf life.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <h3>Testing & Tracking</h3>
+            <p>Each lot can be linked to harvest details, quality data, and handling records.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">04</div>
+            <h3>Premium Delivery</h3>
+            <p>Berries are packed and delivered with freshness, transparency, and trust.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-box">
+          <p>Email: <a href="mailto: info@bluspaar.com">info@bluspaar.com</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/company/bluspaar" target="_blank">linkedin.com/company/bluspaar</a></p>
+          <p>Website: <a href="https://bluspaar.com" target="_blank">bluspaar.com</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 BLUSPAAR. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
