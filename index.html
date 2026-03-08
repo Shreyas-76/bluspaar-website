@@ -4,306 +4,1265 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BLUSPAAR | Blueberries at Par Excellence</title>
-  <meta name="description" content="Premium blueberries grown with technology, traceability, and quality at the core." />
+  <meta
+    name="description"
+    content="Premium blueberries built on precision agriculture, traceability, and quality-first systems."
+  />
   <style>
     :root {
-      --bg: #0d1328;
-      --bg-soft: #151d38;
-      --text: #f5f7fb;
-      --muted: #b8c0d9;
-      --accent: #4d6bff;
-      --line: rgba(255,255,255,0.08);
+      --bg: #030d34;
+      --bg-2: #041445;
+      --bg-3: #061a55;
+      --panel: rgba(10, 22, 68, 0.72);
+      --panel-strong: rgba(8, 18, 58, 0.9);
+      --line: rgba(255, 255, 255, 0.09);
+      --text: #f4f7ff;
+      --muted: rgba(228, 234, 255, 0.72);
+      --gold: #d6ad63;
+      --gold-soft: #ebc98d;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+      --max: 1180px;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, var(--bg) 0%, #0a1020 100%);
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
       color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(47, 88, 214, 0.16), transparent 22%),
+        radial-gradient(circle at top right, rgba(115, 89, 255, 0.10), transparent 20%),
+        linear-gradient(180deg, #020a24 0%, #04113d 42%, #05164c 100%);
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .container {
-      width: min(1100px, 92%);
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
     }
 
+    .topbar {
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid var(--line);
+      color: rgba(231,236,255,0.78);
+      font-size: 0.92rem;
+      text-align: center;
+      padding: 10px 14px;
+    }
+
     header {
-      padding: 24px 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(2, 10, 36, 0.72);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
 
     .nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
     }
 
-    .logo {
-      font-size: 1.4rem;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--gold-soft);
       font-weight: 700;
-      letter-spacing: 0.12em;
+      box-shadow: var(--shadow);
     }
 
-    .tagline-top {
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+    }
+
+    .brand-text span {
+      display: block;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.82rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(96, 126, 255, 0.95);
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(76, 105, 243, 0.28);
     }
 
     .hero {
-      padding: 90px 0 70px;
-      text-align: center;
+      padding: 90px 0 56px;
     }
 
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
-      line-height: 1.05;
-      margin-bottom: 18px;
-      letter-spacing: 0.04em;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
     }
 
-    .hero p {
-      max-width: 760px;
-      margin: 0 auto 30px;
+    .eyebrow {
+      color: var(--gold-soft);
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      font-size: clamp(2.8rem, 6vw, 5.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 740px;
+    }
+
+    .hero-copy p {
+      margin: 0 0 28px;
+      max-width: 700px;
       color: var(--muted);
       font-size: 1.08rem;
     }
 
-    .buttons {
+    .cta-row {
       display: flex;
       gap: 14px;
-      justify-content: center;
       flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
     .btn {
-      text-decoration: none;
-      padding: 14px 22px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: 0.2s ease;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
       border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
-
-    .btn-secondary {
-      border-color: var(--line);
-      color: var(--text);
-      background: transparent;
+      transition: .25s ease;
+      cursor: pointer;
     }
 
     .btn:hover {
-      opacity: 0.92;
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      opacity: 0.97;
     }
 
-    section {
-      padding: 60px 0;
+    .btn-primary {
+      background: linear-gradient(135deg, #5c79ff, #6f8cff);
+      color: #fff;
+      box-shadow: 0 18px 34px rgba(81, 108, 255, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.02);
+      border-color: rgba(255,255,255,0.10);
+      color: #fff;
+    }
+
+    .mini-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .mini-points span::before {
+      content: "•";
+      color: var(--gold-soft);
+      margin-right: 8px;
+    }
+
+    .hero-card {
+      background:
+        linear-gradient(180deg, rgba(14, 28, 84, 0.74), rgba(7, 18, 58, 0.88));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      min-height: 650px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -120px;
+      top: -90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(91, 120, 255, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      left: -100px;
+      bottom: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(214, 173, 99, 0.08), transparent 72%);
+      pointer-events: none;
+    }
+
+    .hero-card small {
+      color: var(--muted);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .pack-stage {
+      position: relative;
+      height: 530px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+      perspective: 1600px;
+    }
+
+    .pack-glow {
+      position: absolute;
+      width: 460px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(70, 101, 255, 0.18), transparent 66%);
+      filter: blur(16px);
+      bottom: 76px;
+      z-index: 0;
+    }
+
+    .pack-shadow-floor {
+      position: absolute;
+      width: 380px;
+      height: 60px;
+      bottom: 74px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,0,0,0.38), transparent 72%);
+      filter: blur(12px);
+      z-index: 0;
+      transition: transform .75s ease, opacity .75s ease;
+    }
+
+    .hero-card.open .pack-shadow-floor {
+      transform: scale(1.08);
+      opacity: 0.72;
+    }
+
+    .pack {
+      position: relative;
+      width: min(410px, 84vw);
+      height: 305px;
+      border: none;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      z-index: 3;
+      transform-style: preserve-3d;
+      transition: transform .45s ease;
+    }
+
+    .pack:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+
+    .pack-base {
+      position: absolute;
+      inset: 50px 0 0;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06)),
+        linear-gradient(160deg, rgba(173, 194, 255, 0.12), rgba(255,255,255,0.04));
+      border: 1.3px solid rgba(255,255,255,0.28);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.55),
+        inset 0 -18px 34px rgba(255,255,255,0.02),
+        0 24px 46px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .pack-base::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255,255,255,0.18), transparent 22% 68%, rgba(255,255,255,0.06)),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,0.04) 0 1px,
+          transparent 1px 28px
+        );
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .pack-base::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 10px;
+      height: 18px;
+      border-radius: 0 0 20px 20px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.12), transparent);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .pack-lid {
+      position: absolute;
+      inset: 0;
+      border-radius: 28px;
+      transform-origin: top center;
+      transition: transform .95s cubic-bezier(.2,.82,.2,1), opacity .5s ease;
+      transform-style: preserve-3d;
+      z-index: 5;
+    }
+
+    .pack-lid-panel {
+      position: absolute;
+      inset: 0;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0.08)),
+        linear-gradient(145deg, rgba(227,234,255,0.06), rgba(255,255,255,0.04));
+      border: 1.4px solid rgba(255,255,255,0.30);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.56),
+        inset 0 -12px 30px rgba(255,255,255,0.02),
+        0 16px 30px rgba(0, 0, 0, 0.14);
+      backdrop-filter: blur(12px);
+    }
+
+    .pack-lid::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      pointer-events: none;
+    }
+
+    .pack-hinge {
+      position: absolute;
+      top: 2px;
+      left: 22px;
+      right: 22px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.12), rgba(180,192,255,0.20), rgba(255,255,255,0.12));
+      opacity: 0.7;
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .pack-brand {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 228px;
+      min-height: 174px;
+      transform: translate(-50%, -44%);
+      border-radius: 24px;
+      color: #fff;
+      padding: 22px 18px 54px;
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.30),
+        inset 0 0 0 1px rgba(255,255,255,0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(6, 15, 48, 0.98), rgba(14, 28, 82, 0.98)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 28%);
+    }
+
+    .pack-brand::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(125deg, rgba(255,255,255,0.04), transparent 30% 68%, rgba(255,255,255,0.03)),
+        radial-gradient(circle at 82% 88%, rgba(214,173,99,0.10), transparent 30%);
+      pointer-events: none;
+    }
+
+    .pack-brand::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='200' viewBox='0 0 260 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.28'/></svg>");
+      mix-blend-mode: soft-light;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .pack-brand-border {
+      position: absolute;
+      inset: 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(214,173,99,0.26);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .pack-brand strong {
+      display: block;
+      text-align: center;
+      font-size: 1.55rem;
+      letter-spacing: 0.22em;
+      line-height: 1.1;
+      color: #f5d59f;
+      margin: 0 0 10px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+
+    .pack-brand span {
+      display: block;
+      text-align: center;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.84);
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pack-brand em {
+      display: block;
+      margin-top: 12px;
+      text-align: center;
+      font-style: normal;
+      font-size: 0.76rem;
+      line-height: 1.3;
+      color: #d8c6a4;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pack-ribbon {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      height: 30px;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        rgba(214,173,99,0.16),
+        rgba(255,255,255,0.08),
+        rgba(214,173,99,0.16)
+      );
+      border: 1px solid rgba(214,173,99,0.20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f0ddba;
+      backdrop-filter: blur(4px);
+      z-index: 2;
+    }
+
+    .seal {
+      position: absolute;
+      right: 22px;
+      top: 78px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 30%, #f8e7c2, #cca45c 58%, #9c6e2b 100%);
+      border: 1px solid rgba(255,255,255,0.36);
+      box-shadow:
+        0 10px 18px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255,255,255,0.36);
+      display: grid;
+      place-items: center;
+      color: #402b0a;
+      font-size: 0.5rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.1;
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .berries-inside {
+      position: absolute;
+      inset: 64px 20px 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px 6px;
+      align-content: center;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .mini-berry {
+      width: 58px;
+      height: 58px;
+      justify-self: center;
+      border-radius: 50%;
+      position: relative;
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><defs><radialGradient id='g1' cx='42%' cy='38%' r='60%'><stop offset='0%' stop-color='%238ea0ff'/><stop offset='28%' stop-color='%23586adf'/><stop offset='68%' stop-color='%23334299'/><stop offset='100%' stop-color='%23141f4a'/></radialGradient></defs><circle cx='60' cy='60' r='50' fill='url(%23g1)'/><ellipse cx='42' cy='34' rx='14' ry='8' fill='white' opacity='0.16'/><path d='M68 15c-8 1-14 5-19 11 5 0 10 0 15 3 3-5 5-9 4-14Z' fill='%23688f45'/></svg>");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(.94) contrast(1.02);
+      box-shadow: 0 10px 16px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-card.open .pack-lid {
+      transform: rotateX(74deg) translateY(-12px);
+      opacity: 0.30;
+    }
+
+    .hero-card.open .pack {
+      transform: translateY(-8px);
+    }
+
+    .berry {
+      position: absolute;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      transform: translate(0, 0) scale(0.32) rotate(0deg);
+      transition:
+        transform .92s cubic-bezier(.16,.95,.2,1.12),
+        opacity .35s ease,
+        filter .28s ease;
+      z-index: 7;
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'><defs><radialGradient id='berry' cx='42%' cy='38%' r='60%'><stop offset='0%' stop-color='%2394a5ff'/><stop offset='28%' stop-color='%235c6fe0'/><stop offset='64%' stop-color='%23324296'/><stop offset='100%' stop-color='%23121d47'/></radialGradient></defs><circle cx='70' cy='70' r='58' fill='url(%23berry)'/><ellipse cx='48' cy='36' rx='18' ry='10' fill='white' opacity='0.18'/><path d='M77 16c-9 1-16 6-22 14 6 0 12 0 18 4 4-6 6-11 4-18Z' fill='%23698e46'/><path d='M70 48l8 8 12-1-8 9 5 12-13-5-12 5 5-12-8-9 12 1z' fill='%23152047' opacity='0.5'/></svg>");
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 18px 28px rgba(0, 0, 0, 0.20);
+      filter: saturate(.96);
+      animation: floatBerry 4.8s ease-in-out infinite;
+      animation-play-state: paused;
+    }
+
+    .berry .berry-label {
+      position: absolute;
+      bottom: -42px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: max-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(228, 220, 208, 0.92);
+      color: #131826;
+      font-size: 0.83rem;
+      font-weight: 700;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.16);
+      backdrop-filter: blur(8px);
+      white-space: nowrap;
+    }
+
+    .hero-card.open .berry {
+      opacity: 1;
+      transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot));
+      animation-play-state: running;
+      animation-delay: var(--delay);
+    }
+
+    .berry:hover {
+      transform: translate(var(--tx), var(--ty)) scale(1.05) rotate(var(--rot)) !important;
+      filter: saturate(1.04) brightness(1.02);
+    }
+
+    @keyframes floatBerry {
+      0%, 100% { margin-top: 0; }
+      50% { margin-top: -7px; }
+    }
+
+    .b1 { --tx: -190px; --ty: -126px; --rot: -10deg; --delay: .02s; }
+    .b2 { --tx: 192px; --ty: -120px; --rot: 9deg; --delay: .09s; }
+    .b3 { --tx: -214px; --ty: 82px; --rot: -7deg; --delay: .15s; }
+    .b4 { --tx: 214px; --ty: 86px; --rot: 8deg; --delay: .22s; }
+    .b5 { --tx: 0px; --ty: -196px; --rot: 0deg; --delay: .28s; }
+    .b6 { --tx: 0px; --ty: 186px; --rot: 0deg; --delay: .34s; }
+
+    .sections {
+      padding: 26px 0 80px;
+    }
+
+    .section {
+      padding: 22px 0;
+    }
+
+    .section-card {
+      background:
+        linear-gradient(180deg, rgba(9, 20, 62, 0.78), rgba(7, 16, 50, 0.92));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 34px;
+      backdrop-filter: blur(12px);
     }
 
     .section-title {
-      font-size: 2rem;
-      margin-bottom: 14px;
+      margin: 0 0 12px;
+      font-size: clamp(1.7rem, 4vw, 2.7rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
     }
 
-    .section-text {
+    .section-lead {
       color: var(--muted);
-      max-width: 850px;
+      max-width: 820px;
+      margin: 0 0 24px;
     }
 
-    .grid {
+    .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 28px;
     }
 
-    .card {
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      border-radius: 16px;
+    .feature,
+    .info-box,
+    .product {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+    }
+
+    .feature {
       padding: 22px;
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
+    .feature h3,
+    .product-body h3 {
+      margin: 0 0 8px;
+      font-size: 1.06rem;
+      color: #fff;
     }
 
-    .card p {
+    .feature p,
+    .info-box p,
+    .info-box li,
+    .product p {
       color: var(--muted);
-      font-size: 0.98rem;
+      margin: 0;
     }
 
-    .process {
+    .two-col,
+    .contact-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 28px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
     }
 
-    .step {
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
+    .info-box {
+      padding: 22px;
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--gold-soft);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .qr-demo {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .qr {
+      width: 130px;
+      height: 130px;
       border-radius: 16px;
+      background:
+        linear-gradient(90deg, #fff 10%, #111 10% 20%, #fff 20% 30%, #111 30% 40%, #fff 40% 50%, #111 50% 60%, #fff 60% 70%, #111 70% 80%, #fff 80% 90%, #111 90%),
+        linear-gradient(#111 10%, #fff 10% 20%, #111 20% 30%, #fff 30% 40%, #111 40% 50%, #fff 50% 60%, #111 60% 70%, #fff 70% 80%, #111 80% 90%, #fff 90%);
+      background-blend-mode: multiply;
+      box-shadow: inset 0 0 0 8px #fff, 0 8px 20px rgba(0,0,0,0.16);
+      border: 1px solid rgba(255,255,255,0.10);
+      position: relative;
+    }
+
+    .qr::before,
+    .qr::after {
+      content: "";
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 6px solid #111;
+      background: #fff;
+    }
+
+    .qr::before { top: 12px; left: 12px; }
+    .qr::after { top: 12px; right: 12px; }
+
+    .qr span {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      width: 22px;
+      height: 22px;
+      border: 6px solid #111;
+      background: #fff;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .product {
+      overflow: hidden;
+    }
+
+    .product-art {
+      height: 210px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 24%, rgba(95, 123, 255, 0.18), transparent 34%),
+        linear-gradient(180deg, rgba(9, 22, 66, 0.92), rgba(6, 17, 54, 0.98));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+
+    .berry-cluster {
+      position: relative;
+      width: 180px;
+      height: 130px;
+    }
+
+    .berry-photo {
+      position: absolute;
+      border-radius: 50%;
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'><defs><radialGradient id='berry' cx='42%' cy='38%' r='60%'><stop offset='0%' stop-color='%2394a5ff'/><stop offset='28%' stop-color='%235c6fe0'/><stop offset='64%' stop-color='%23324296'/><stop offset='100%' stop-color='%23121d47'/></radialGradient></defs><circle cx='70' cy='70' r='58' fill='url(%23berry)'/><ellipse cx='48' cy='36' rx='18' ry='10' fill='white' opacity='0.18'/><path d='M77 16c-9 1-16 6-22 14 6 0 12 0 18 4 4-6 6-11 4-18Z' fill='%23698e46'/><path d='M70 48l8 8 12-1-8 9 5 12-13-5-12 5 5-12-8-9 12 1z' fill='%23152047' opacity='0.5'/></svg>");
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 14px 24px rgba(0,0,0,0.24);
+    }
+
+    .berry-photo.one {
+      width: 84px;
+      height: 84px;
+      left: 8px;
+      top: 26px;
+    }
+
+    .berry-photo.two {
+      width: 92px;
+      height: 92px;
+      left: 58px;
+      top: 8px;
+    }
+
+    .berry-photo.three {
+      width: 78px;
+      height: 78px;
+      left: 104px;
+      top: 38px;
+    }
+
+    .product-body {
       padding: 20px;
     }
 
-    .step-number {
-      font-size: 0.85rem;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .contact-box {
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 28px;
-      margin-top: 24px;
-    }
-
-    .contact-box p {
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .contact-box a {
-      color: white;
-      text-decoration: none;
+    .product-body p {
+      margin-bottom: 14px;
+      font-size: 0.95rem;
     }
 
     footer {
       border-top: 1px solid var(--line);
       padding: 24px 0 40px;
       color: var(--muted);
-      font-size: 0.95rem;
       text-align: center;
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 900px) {
-      .grid,
-      .process {
+    @media (max-width: 1040px) {
+      .hero-grid,
+      .feature-grid,
+      .two-col,
+      .products,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .hero-card {
+        min-height: 650px;
+      }
+
+      .pack-stage {
+        height: 500px;
+      }
+
+      .pack {
+        width: min(330px, 86vw);
+        height: 255px;
+      }
+
+      .seal {
+        width: 44px;
+        height: 44px;
+        right: 18px;
+        top: 70px;
+        font-size: 0.43rem;
+      }
+
+      .pack-brand {
+        width: 190px;
+        min-height: 150px;
+        padding: 18px 14px 46px;
+      }
+
+      .pack-brand strong {
+        font-size: 1.2rem;
+        letter-spacing: 0.18em;
+      }
+
+      .pack-brand span {
+        font-size: 0.74rem;
+      }
+
+      .pack-brand em {
+        font-size: 0.7rem;
+        margin-top: 10px;
+      }
+
+      .pack-ribbon {
+        height: 26px;
+        font-size: 0.6rem;
+        bottom: 12px;
+      }
+
+      .mini-berry {
+        width: 46px;
+        height: 46px;
+      }
+
+      .berry {
+        width: 76px;
+        height: 76px;
+      }
+
+      .b1 { --tx: -132px; --ty: -110px; --rot: -10deg; }
+      .b2 { --tx: 134px; --ty: -106px; --rot: 9deg; }
+      .b3 { --tx: -150px; --ty: 74px; --rot: -7deg; }
+      .b4 { --tx: 152px; --ty: 76px; --rot: 8deg; }
+      .b5 { --tx: 0px; --ty: -162px; --rot: 0deg; }
+      .b6 { --tx: 0px; --ty: 156px; --rot: 0deg; }
+
+      .section-card {
+        padding: 24px;
+      }
+
+      .qr-demo {
         grid-template-columns: 1fr;
       }
 
-      .nav {
-        flex-direction: column;
-        gap: 8px;
+      .berry-cluster {
+        transform: scale(0.92);
       }
     }
   </style>
 </head>
 <body>
+  <div class="topbar">
+    Premium blueberries • Precision-grown • Traceability-first brand vision
+  </div>
 
   <header>
     <div class="container nav">
-      <div class="logo">BLUSPAAR</div>
-      <div class="tagline-top">Blueberries at Par Excellence</div>
+      <div class="brand">
+        <div class="brand-mark">B</div>
+        <div class="brand-text">
+          <strong>BLUSPAAR</strong>
+          <span>Blueberries at Par Excellence</span>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#story">Story</a>
+        <a href="#quality">Quality</a>
+        <a href="#traceability">Traceability</a>
+        <a href="#products">Products</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container">
-        <h1>Premium Blueberries.<br>Built on Precision.</h1>
-        <p>
-          BLUSPAAR is building a premium blueberry brand by combining modern agriculture,
-          traceability, and quality-first systems to deliver berries that are fresh, transparent, and dependable.
-        </p>
-        <div class="buttons">
-          <a class="btn btn-primary" href="#story">Our Story</a>
-          <a class="btn btn-secondary" href="#contact">Contact</a>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">A premium blueberry brand</div>
+          <h1>Premium Blueberries.<br>Built on Precision.</h1>
+          <p>
+            BLUSPAAR is building a premium blueberry brand by combining modern agriculture,
+            traceability, and quality-first systems to deliver berries that are fresh,
+            transparent, and dependable.
+          </p>
+
+          <div class="cta-row">
+            <a href="#story" class="btn btn-primary">Our Story</a>
+            <a href="#contact" class="btn btn-secondary">Contact</a>
+          </div>
+
+          <div class="mini-points">
+            <span>Controlled cultivation vision</span>
+            <span>Testing-led quality mindset</span>
+            <span>Cold-chain focused handling</span>
+          </div>
+        </div>
+
+        <div class="hero-card" id="interactive">
+          <small>Click the premium pack to reveal the journey.</small>
+
+          <div class="pack-stage">
+            <div class="pack-glow"></div>
+            <div class="pack-shadow-floor"></div>
+
+            <button class="pack" id="packButton" aria-label="Open blueberry journey">
+              <div class="pack-base">
+                <div class="berries-inside">
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                  <span class="mini-berry"></span>
+                </div>
+              </div>
+
+              <div class="pack-lid">
+                <div class="pack-lid-panel"></div>
+                <div class="pack-hinge"></div>
+
+                <div class="pack-brand">
+                  <div class="pack-brand-border"></div>
+                  <strong>BLUSPAAR</strong>
+                  <span>Blueberries at Par Excellence</span>
+                  <em>Click to unveil the collection</em>
+                  <div class="pack-ribbon">Reserve Collection</div>
+                </div>
+
+                <div class="seal">Premium<br>Grade</div>
+              </div>
+            </button>
+
+            <button class="berry b1" data-target="story">
+              <span class="berry-label">Story</span>
+            </button>
+
+            <button class="berry b2" data-target="quality">
+              <span class="berry-label">Testing</span>
+            </button>
+
+            <button class="berry b3" data-target="traceability">
+              <span class="berry-label">QR Traceability</span>
+            </button>
+
+            <button class="berry b4" data-target="products">
+              <span class="berry-label">Packs</span>
+            </button>
+
+            <button class="berry b5" data-target="coldchain">
+              <span class="berry-label">Cold Chain</span>
+            </button>
+
+            <button class="berry b6" data-target="contact">
+              <span class="berry-label">Contact</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="story">
+    <section class="sections">
       <div class="container">
-        <h2 class="section-title">Our Story</h2>
-        <p class="section-text">
-          At BLUSPAAR, we aim to create a premium blueberry brand by combining technology with modern agriculture.
-          Our focus is to deliver exceptional quality while ensuring complete transparency in how our berries are grown and handled.
-          Every blueberry we produce is part of a traceable journey—from cultivation and harvest to testing and cold-chain storage.
-        </p>
-      </div>
-    </section>
 
-    <section id="pillars">
-      <div class="container">
-        <h2 class="section-title">Built Around Quality</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Controlled Cultivation</h3>
-            <p>
-              Blueberries are grown using carefully managed cultivation systems designed to support consistency,
-              plant health, and premium fruit quality.
+        <div class="section" id="story">
+          <div class="section-card">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-lead">
+              At BLUSPAAR, we aim to create a premium blueberry brand by combining technology
+              with modern agriculture. Our focus is to deliver exceptional quality while ensuring
+              complete transparency in how our berries are grown and handled.
             </p>
-          </div>
-          <div class="card">
-            <h3>Technology-Driven Farming</h3>
-            <p>
-              Environmental monitoring, irrigation control, and process discipline help us maintain optimal growing conditions
-              throughout the crop cycle.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Traceability & Testing</h3>
-            <p>
-              Our long-term vision is to connect every pack to its journey through QR-based traceability,
-              supported by quality checks such as residue, microbial, and nutritional analysis.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="process">
-      <div class="container">
-        <h2 class="section-title">From Harvest to Consumption</h2>
-        <div class="process">
-          <div class="step">
-            <div class="step-number">01</div>
-            <h3>Harvest</h3>
-            <p>Fruit is harvested with quality and handling discipline at the center.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">02</div>
-            <h3>Pre-Cooling</h3>
-            <p>Rapid cooling helps preserve freshness, texture, and shelf life.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">03</div>
-            <h3>Testing & Tracking</h3>
-            <p>Each lot can be linked to harvest details, quality data, and handling records.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">04</div>
-            <h3>Premium Delivery</h3>
-            <p>Berries are packed and delivered with freshness, transparency, and trust.</p>
+            <div class="feature-grid">
+              <div class="feature">
+                <h3>Modern cultivation</h3>
+                <p>Built around controlled systems, consistency, and premium fruit quality.</p>
+              </div>
+              <div class="feature">
+                <h3>Brand with substance</h3>
+                <p>A fruit brand designed to stand on trust, not only aesthetics.</p>
+              </div>
+              <div class="feature">
+                <h3>Precision systems</h3>
+                <p>Structured around documentation, disciplined handling, and quality-first execution.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-box">
-          <p>Email: <a href="mailto: info@bluspaar.com">info@bluspaar.com</a></p>
-          <p>LinkedIn: <a href="https://www.linkedin.com/company/bluspaar" target="_blank">linkedin.com/company/bluspaar</a></p>
-          <p>Website: <a href="https://bluspaar.com" target="_blank">bluspaar.com</a></p>
+        <div class="section" id="quality">
+          <div class="section-card">
+            <h2 class="section-title">Quality & Testing</h2>
+            <p class="section-lead">
+              BLUSPAAR’s long-term quality model is built around lot identification, testing,
+              validation, and disciplined handling for premium fruit.
+            </p>
+
+            <div class="two-col">
+              <div class="info-box">
+                <strong>Planned quality framework</strong>
+                <ul>
+                  <li>Pesticide residue testing</li>
+                  <li>Microbial testing</li>
+                  <li>Heavy metal screening where needed</li>
+                  <li>Brix, firmness, and visual grading</li>
+                  <li>Batch-based traceability records</li>
+                </ul>
+              </div>
+              <div class="info-box">
+                <strong>Why this matters</strong>
+                <p>
+                  Premium consumers increasingly expect more than attractive packaging.
+                  They want transparency, safety, and trust behind what they eat.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="section" id="traceability">
+          <div class="section-card">
+            <h2 class="section-title">QR Traceability</h2>
+            <p class="section-lead">
+              Our vision is for each pack to connect to its own digital journey. A simple scan can
+              help consumers understand where the berries came from and how they were handled.
+            </p>
+
+            <div class="qr-demo">
+              <div class="qr"><span></span></div>
+              <div class="info-box">
+                <strong>What a QR page can show</strong>
+                <ul>
+                  <li>Source or farm location</li>
+                  <li>Harvest date and lot code</li>
+                  <li>Testing summary</li>
+                  <li>Cold-chain handling status</li>
+                  <li>Brand story and quality promise</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="coldchain">
+          <div class="section-card">
+            <h2 class="section-title">Cold Chain</h2>
+            <p class="section-lead">
+              Blueberries depend on careful temperature control. A premium berry experience is only
+              possible with fast pre-cooling, disciplined storage, and proper transit handling.
+            </p>
+
+            <div class="feature-grid">
+              <div class="feature">
+                <h3>Rapid pre-cooling</h3>
+                <p>Fast post-harvest cooling helps preserve texture, bloom, and shelf life.</p>
+              </div>
+              <div class="feature">
+                <h3>Controlled storage</h3>
+                <p>Low, stable temperatures are critical for maintaining freshness and visual quality.</p>
+              </div>
+              <div class="feature">
+                <h3>Premium delivery</h3>
+                <p>Cold-chain discipline supports both shelf appeal and long-term brand trust.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="products">
+          <div class="section-card">
+            <h2 class="section-title">Future Product Formats</h2>
+            <p class="section-lead">
+              BLUSPAAR is designed to evolve from premium fresh fruit into a broader value-added portfolio.
+            </p>
+
+            <div class="products">
+              <div class="product">
+                <div class="product-art">
+                  <div class="berry-cluster">
+                    <div class="berry-photo one"></div>
+                    <div class="berry-photo two"></div>
+                    <div class="berry-photo three"></div>
+                  </div>
+                </div>
+                <div class="product-body">
+                  <h3>125g Premium Pack</h3>
+                  <p>Retail-forward format designed for freshness, gifting, and high shelf appeal.</p>
+                  <a href="#contact" class="btn btn-secondary">Enquire</a>
+                </div>
+              </div>
+
+              <div class="product">
+                <div class="product-art">
+                  <div class="berry-cluster">
+                    <div class="berry-photo one"></div>
+                    <div class="berry-photo two"></div>
+                    <div class="berry-photo three"></div>
+                  </div>
+                </div>
+                <div class="product-body">
+                  <h3>250g Family Pack</h3>
+                  <p>A larger format for repeat buyers seeking quality snacking and daily use.</p>
+                  <a href="#contact" class="btn btn-secondary">Enquire</a>
+                </div>
+              </div>
+
+              <div class="product">
+                <div class="product-art">
+                  <div class="berry-cluster">
+                    <div class="berry-photo one"></div>
+                    <div class="berry-photo two"></div>
+                    <div class="berry-photo three"></div>
+                  </div>
+                </div>
+                <div class="product-body">
+                  <h3>Functional Ingredients</h3>
+                  <p>Long-term vision for freeze-dried powders, extracts, and blueberry bioactives.</p>
+                  <a href="#contact" class="btn btn-secondary">Learn more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="contact">
+          <div class="section-card">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-lead">
+              Building BLUSPAAR as a premium blueberry brand for India and beyond.
+            </p>
+
+            <div class="contact-grid">
+              <div class="info-box">
+                <strong>Email</strong>
+                <p><a href="mailto:hello@bluspaar.com">hello@bluspaar.com</a></p>
+                <strong style="margin-top:16px;">LinkedIn</strong>
+                <p>
+                  <a href="https://www.linkedin.com/company/bluspaar" target="_blank" rel="noreferrer">
+                    linkedin.com/company/bluspaar
+                  </a>
+                </p>
+              </div>
+
+              <div class="info-box">
+                <strong>Website</strong>
+                <p><a href="https://www.bluspaar.com" target="_blank" rel="noreferrer">www.bluspaar.com</a></p>
+                <strong style="margin-top:16px;">Brand promise</strong>
+                <p>Premium blueberries shaped by precision, transparency, and trust.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -314,5 +1273,31 @@
     </div>
   </footer>
 
+  <script>
+    const heroCard = document.querySelector('.hero-card');
+    const packButton = document.getElementById('packButton');
+    const berries = document.querySelectorAll('.berry');
+
+    packButton.addEventListener('click', () => {
+      heroCard.classList.toggle('open');
+    });
+
+    berries.forEach((berry) => {
+      berry.addEventListener('click', () => {
+        const targetId = berry.getAttribute('data-target');
+        const target = document.getElementById(targetId);
+
+        if (!heroCard.classList.contains('open')) {
+          heroCard.classList.add('open');
+        }
+
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 180);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
